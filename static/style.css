@@ -128,7 +128,7 @@ img {
    max-width: 250px;
    max-height: 290px;
    border-radius: 5px;
-   overflow-y: scroll;
+   overflow-y: auto;
 }
 
 .content p {
