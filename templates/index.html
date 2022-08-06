@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>jhjh</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>jhjh</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        </head>
+    <body>
 
 
-    <!-- HEADER -->
-    <header class="header">
-        <nav class="nav">
+        <!-- HEADER -->
+        <header class="header">
+            <nav class="nav">
             <div class="logo">
                 <a href="#">Logo</a>
             </div>
@@ -20,86 +20,28 @@
                 <li><a href="#">Filmes</a></li>
                 <li><a href="#">Filmes Populares</a></li>
             </ul>
-        </nav>
-    </header>
+            </nav>
+            </header>
 
 
-    <!-- Conteúdo principal -->
-    <main class="container">
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Telefone preto</h4>
-                <p>Descrição:  as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        <!-- Conteúdo principal -->
+        <main class="container">
+            {% for m in movies %}
+            <div class="card">
+                <img src="{{ m.poster_path }}" class="image">
+                <div class="content">
+                    <h4>{{ m.title }}</h4>
+                    <p>{{ m.overview }}</p>
+                    <div class="genre-container">
+                        {% for id in m.genre_ids %}
+                        <div class="genre" style="background: {{ get_genre_color(id) }};">{{ genres[id] }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Titulo</h4>
-                <p>Descrição Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu dui at felis eleifend tincidunt. Fusce semper urna tellus, eget suscipit ex malesuada in. Ut eget consectetur enim. Donec interdum, leo vitae cursus imperdiet, est urna dapibus diam, vitae tincidunt ante metus a magna.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Titulo</h4>
-                <p>Descrição Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu dui at felis eleifend tincidunt. Fusce semper urna tellus, eget suscipit ex malesuada in. Ut eget consectetur enim. Donec interdum, leo vitae cursus imperdiet, est urna dapibus diam, vitae tincidunt ante metus a magna.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Doutor Estranho no Multiverso da Loucura</h4>
-                <p>Descrição Doutor Estranho, com a ajuda de aliados místicos antigos e novos, atravessa as perigosas realidades alternativas e alucinantes do Multiverso para enfrentar um novo adversário misterioso.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Telefone preto</h4>
-                <p>Descrição Finney Shaw, um menino tímido, mas inteligente, de 13 anos, é sequestrado por um assassino sádico e preso em um porão à prova de som, onde gritar é de pouca utilidade. Quando um telefone desconectado na parede começa a tocar, Finney descobre que pode ouvir as vozes das vítimas anteriores do assassino. E eles estão determinados a garantir que o que aconteceu com eles não aconteça com Finney.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Minions 2: A Origem de Gru </h4>
-                <p>Descrição consectetur adipiscing elit. Vestibulum eu dui at felis eleifend tincidunt. Fusce semper urna tellus, e consectetur adipiscing elit. Vestibulum eu dui at felis eleifend tincidunt. Fusce semper urna tellus, e</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Top Gun: Maverick</h4>
-                <p>Depois de mais de 30 anos de serviço como um dos principais aviadores da Marinha, Pete "Maverick" Mitchell está de volta, rompendo os limites como um piloto de testes corajoso. No mundo contemporâneo das guerras tecnológicas, Maverick enfrenta drones e prova que o fator humano ainda é essencial.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lobo4.jpg') }}" class="image">
-            <div class="content">
-                <h4>Homem-Aranha: Sem Volta Para Casa</h4>
-                <p>Peter Parker é desmascarado e não consegue mais separar sua vida normal dos grandes riscos de ser um super-herói. Quando ele pede ajuda ao Doutor Estranho, os riscos se tornam ainda mais perigosos, e o forçam a descobrir o que realmente significa ser o Homem-Aranha...</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/thor.jpg') }}" class="image">
-            <div class="content">
-                <h4>Thor: Love and Thunder</h4>
-                <p>Thor parte em uma jornada diferente de tudo que já enfrentou – uma busca pela paz interior. Mas sua aposentadoria é interrompida por um assassino galáctico conhecido como Gorr, o Carniceiro de Deus, que busca a extinção dos deuses. Para combater a ameaça, Thor pede a ajuda do Rei Valquíria, Korg e da ex-namorada Jane Foster, que – para surpresa de Thor – inexplicavelmente empunha seu martelo mágico, Mjolnir, como o Poderoso Thor. Juntos, eles embarcam em uma angustiante aventura cósmica para descobrir o mistério da vingança do God Butcher e detê-lo antes que seja tarde demais.</p>
-            </div>
-        </div>
-    </main>
+                {% endfor %}
+        </main>
 
 
-
-</body>
+    </body>
 </html>

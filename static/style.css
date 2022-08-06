@@ -29,9 +29,6 @@ img {
    background: #010139;
    padding: 20px 100px;
    margin-bottom: 100px;
-   max-width: 1500px;
-
-
 }
 
 
@@ -138,6 +135,27 @@ img {
 
 }
 
+.genre-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 16px;
+    margin: 8px 4px;
+}
+
+.genre {
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  height: 20px;
+  margin: 4px 5px;
+  padding: 0 12px;
+  text-transform: lowercase;
+}
+
+}
 
 
 @media (max-width: 900px) {
@@ -145,4 +163,3 @@ img {
     grid-template-columns: repeat(2, minmax(300px, 400px))
    }
 }
-
